@@ -1,3 +1,10 @@
-modules.bak/*
-modules
-modules/*
+*swp
+*~
+.vagrant
+.tmp
+.librarian
+.pe_build
+puppet/modules
+Puppetfile.lock
+.cache/*.gz
+modules.bak
