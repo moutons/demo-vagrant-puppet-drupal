@@ -18,20 +18,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1536"]
   end
 
-  # group { "puppet":
-  #   ensure => "present",
-  # }
-  #
-  # File { owner => 0, group => 0, mode => 0644 }
-  #
-  # file { '/etc/motd':
-  #   content => "Welcome to your Vagrant-built virtual machine!
-  #               Managed by Puppet.\n"
-  # }
-  #
-  # config.vm.provision :puppet do |puppet|
-  #   puppet.manifests_path = "manifests"
-  #   puppet.manifest_file  = "site.pp"
-  # end
+  # provision w/puppet standalone
+  config.vm.provision :puppet do |puppet|
+    puppet.module_path = "modules"
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file  = "site.pp"
+    puppet.options = "--verbose"
+  end
 
 end
