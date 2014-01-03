@@ -8,3 +8,4 @@ puppet/modules
 Puppetfile.lock
 .cache/*.gz
 modules.bak
+modules
