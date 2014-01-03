@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "puppetlabs-centos64"
   config.vm.box_url = "http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210.box"
 
-  config.vm.network : forwarded_port, guest:80, host: 8888
+  config.vm.network :forwarded_port, guest:80, host: 8888
   # This means that you should be able to access the Drupal site at
   # http://localhost:8888/ once the Vagrant box boots and provisioning
   # is complete.
