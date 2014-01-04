@@ -1,7 +1,12 @@
 class dr_mysql {
   include mysql
-  class { 'mysql::server':
-    config_hash => { 'root_password' => 'vagrant' },
+  class { '::mysql::server':
+    config_hash      => { 'root_password' => 'vagrant' },
+    override_options => { 
+      'mysqld' => { 
+        'innodb_buffer_pool_size' => '128MB' 
+      } 
+    }
   }
 
   mysql::db { 'drupal':
@@ -10,4 +15,7 @@ class dr_mysql {
     host     => 'localhost',
     grant    => ['all'],
   }
+
+  # using override_options hopefully
+  # file { '/etc/mysql/conf.d/innodb':
 }

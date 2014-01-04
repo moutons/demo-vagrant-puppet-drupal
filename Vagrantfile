@@ -26,11 +26,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path = "modules"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
-    puppet.options = "--verbose"
-    puppet.facter = {
-	    "domain" => "drupal.local",
-	    "fqdn"   => "dev.drupal.local"
-    }
+    puppet.options = "--debug"
   end
 
 end
