@@ -23,7 +23,7 @@ class dr_apache_php {
   }
   # php.ini
   augeas { 'php_dev_config':
-    context => "/files/etc/php.ini/PHP"
+    context => "/files/etc/php.ini/PHP",
     changes => [
       'set memory_limit 512M',
       'set max_execution_time 60',
