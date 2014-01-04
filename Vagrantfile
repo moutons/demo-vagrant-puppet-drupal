@@ -18,12 +18,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1536"]
   end
 
+  config.vm.provision :shell, :inline => "/usr/bin/yum -y update"
+  config.vm.provision :shell, :inline => "/usr/bin/yum -y install puppet augeas augeas-libs ruby-augeas rubygems"
+
   # provision w/puppet standalone
   config.vm.provision :puppet do |puppet|
     puppet.module_path = "modules"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
     puppet.options = "--verbose"
+    puppet.facter = {
+	    "domain" => "drupal.local",
+	    "fqdn"   => "dev.drupal.local"
+    }
   end
 
 end
