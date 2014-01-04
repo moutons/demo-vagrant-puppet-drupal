@@ -1,11 +1,9 @@
 class dr_mysql {
   include mysql
   class { '::mysql::server':
-    config_hash      => { 'root_password' => 'vagrant' },
+    root_password => 'vagrant',
     override_options => { 
-      'mysqld' => { 
-        'innodb_buffer_pool_size' => '128MB' 
-      } 
+      'mysqld' => { 'innodb_buffer_pool_size' => '128MB' }, 
     }
   }
 
