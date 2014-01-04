@@ -3,8 +3,8 @@ class dr_mysql {
   class { '::mysql::server':
     root_password => 'vagrant',
     override_options => { 
-      'mysqld' => { 'innodb_buffer_pool_size' => '128MB' }, 
-    }
+        'mysqld' => { 'innodb_buffer_pool_size' => '128MB' } , 
+      } 
   }
 
   mysql::db { 'drupal':
